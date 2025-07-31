@@ -69,6 +69,8 @@ class HashEval:
         """
         Initialize a HashEval object which offers an interface to control hashing and search methods for desired
         dataset. Compute a map of duplicate images in the document space given certain input control parameters.
+
+        初始化一个 HashEval 对象，该对象提供一个接口来控制所需数据集的哈希值和搜索方法。给定特定的输入控制参数，计算文档空间中重复图像的映射。
         """
         self.test = test  # database
         self.queries = queries

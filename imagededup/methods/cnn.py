@@ -408,6 +408,9 @@ class CNN:
         duplicate file names. Optionally, the cosine distances could be returned instead of just duplicate filenames for
         each query file.
 
+        查找每个文件的重复项。输入目录或编码字典的路径，其中重复项将被检测为超过给定阈值。返回一个字典，该字典包含文件名作为键，重复文件名作为值。
+        （可选）可以返回每个查询文件的余弦距离，而不仅仅是重复文件名。
+
         Args:
             image_dir: Path to the directory containing all the images or dictionary with keys as file names
             and values as numpy arrays which represent the CNN encoding for the key image file.
