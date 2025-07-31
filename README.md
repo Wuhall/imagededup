@@ -35,13 +35,15 @@ It is distributed under the Apache 2.0 license.
 
 ## 📖 Contents
 
-- [Installation](#%EF%B8%8F-installation)
-- [Quick Start](#-quick-start)
-- [Benchmarks](#-benchmarks)
-- [Contribute](#-contribute)
-- [Citation](#-citation)
-- [Maintainers](#-maintainers)
-- [License](#-copyright)
+- [Image Deduplicator (imagededup)](#image-deduplicator-imagededup)
+  - [📖 Contents](#-contents)
+  - [⚙️ Installation](#️-installation)
+  - [🚀 Quick Start](#-quick-start)
+  - [⏳ Benchmarks](#-benchmarks)
+  - [🤝 Contribute](#-contribute)
+  - [📝 Citation](#-citation)
+  - [🏗 Maintainers](#-maintainers)
+  - [© Copyright](#-copyright)
 
 ## ⚙️ Installation
 
@@ -58,7 +60,7 @@ pip install imagededup
 ```bash
 git clone https://github.com/idealo/imagededup.git
 cd imagededup
-pip install .
+pip install . # 从本地源码安装
 ```  
 
 ## 🚀 Quick Start

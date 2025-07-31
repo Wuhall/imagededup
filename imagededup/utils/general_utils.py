@@ -70,19 +70,36 @@ def parallelise(function: Callable, data: List, verbose: bool, num_workers: int)
     pool.join()
     return results
 
-
+'''
+生成文件列表
+args：
+    image_dir: 文件夹路径, Union[PurePath, str] 多选一类型，可以是PurePath对象，也可以是字符串
+    recursive: 是否递归遍历子文件夹
+return:
+    List: 文件列表
+'''
 def generate_files(image_dir: Union[PurePath, str], recursive: bool) -> List:
     if recursive:
         glob_pattern = '**/*'
     else:
         glob_pattern = '*'
 
+    # Path(image_dir).glob(glob_pattern)​ 使用glob_pattern匹配image_dir下的所有文件和文件夹
+    # 过滤条件 not i.name.startswith('.'): 排除以点开头的隐藏文件（如 .DS_Store）；not i.is_dir(): 排除目录，只保留文件。
+    # i.absolute() 返回文件的绝对路径
     return [
         i.absolute()
         for i in Path(image_dir).glob(glob_pattern)
         if not (i.name.startswith('.') or i.is_dir())
     ]
 
-
+'''
+生成相对路径
+args：
+    image_dir: 文件夹路径, Union[PurePath, str] 多选一类型，可以是PurePath对象，也可以是字符串
+    files: 文件列表
+return:
+    List: 相对路径列表
+'''
 def generate_relative_names(image_dir: Union[PurePath, str], files: List) -> List:
     return [str(f.relative_to(Path(image_dir).absolute())) for f in files]

@@ -263,6 +263,9 @@ class Hashing:
         Optionally, the below the given hamming distance could be returned instead of just duplicate filenames for each
         query file.
 
+        查找每个文件的重复项。输入要检测重复项的目录或编码字典的路径。所有汉明距离小于或等于 max_distance_threshold 的图像均视为重复项。
+        返回包含键作为文件名、值作为重复文件名列表的字典。（可选）可以返回低于给定汉明距离的值，而不仅仅是每个查询文件的重复文件名。
+
         Args:
             image_dir: Path to the directory containing all the images or dictionary with keys as file names
                        and values as hash strings for the key image file.
@@ -298,6 +301,7 @@ class Hashing:
         max_distance_threshold=15, scores=True, outfile='results.json')
         ```
         """
+        # 校验hamming distance的阈值设置在一个合理的范围，（0-64）
         self._check_hamming_distance_bounds(thresh=max_distance_threshold)
         if image_dir:
             result = self._find_duplicates_dir(
@@ -343,6 +347,9 @@ class Hashing:
         Take in path of the directory in which duplicates are to be detected below the given hamming distance
         threshold. Returns dictionary containing key as filename and value as a list of duplicate file names.
         Optionally, the hamming distances could be returned instead of just duplicate filenames for each query file.
+
+        传入一个目录的路径，在该目录中，需要检测重复文件是否低于给定的汉明距离阈值。返回一个字典，该字典包含文件名作为键，重复文件名作为值。
+        （可选）可以返回每个查询文件的汉明距离，而不仅仅是重复文件名。
 
         Args:
             image_dir: Path to the directory containing all the images.
