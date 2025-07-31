@@ -8,13 +8,12 @@
         ],
         "extra_compile_args": [
             "-O3",
-            "-march=native",
-            "-mtune=native"
+            "-stdlib=libc++"
         ],
         "extra_link_args": [
             "-O3",
-            "-march=native",
-            "-mtune=native"
+            "-lc++",
+            "-nodefaultlibs"
         ],
         "include_dirs": [
             "imagededup/handlers/search"
